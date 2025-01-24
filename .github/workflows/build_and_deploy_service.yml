@@ -30,8 +30,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: ecommerce-aws-assignment 
-          environment_name: ecommerce-aws-assignment-env
+          application_name: ecommerce-aws-assinment-env
+          environment_name: ecommerce-aws-assinment-env-env
           version_label: ${{ github.run_number }}
           region: ap-south-1
           deployment_package: target/ecommerce-0.0.1-SNAPSHOT.jar 
