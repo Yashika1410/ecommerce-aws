@@ -20,8 +20,9 @@ jobs:
 
       # Set up JDK (Java Example)
       - name: Set up Java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4.6.0
         with:
+          distribution: 'oracle'
           java-version: '17' 
 
       # Install dependencies
