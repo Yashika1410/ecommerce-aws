@@ -27,7 +27,7 @@ jobs:
 
       # Install dependencies
       - name: Install dependencies
-        run: ./mvnw dependency:resolve # Adjust if using Gradle or other tools
+        run:  mvn dependency:resolve # Adjust if using Gradle or other tools
 
       # Run tests
       - name: Run tests
