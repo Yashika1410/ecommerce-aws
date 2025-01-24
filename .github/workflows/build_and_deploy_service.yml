@@ -1,0 +1,37 @@
+name: Build and Deploy to AWS Elastic Beanstalk
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up JDK
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17' # Adjust to your project's Java version
+
+      # Step 3: Build the Spring Boot application
+      - name: Build with Maven
+        run: ./mvnw clean package
+
+      # Step 4: Upload JAR file to Elastic Beanstalk
+      - name: Deploy to AWS Elastic Beanstalk
+        uses: einaregilsson/beanstalk-deploy@v22
+        with:
+          application_name: ecommerce-aws-assignment 
+          environment_name: ecommerce-aws-assignment-env
+          version_label: ${{ github.run_number }}
+          region: ap-south-1
+          deployment_package: target/*.jar # Path to the built JAR file
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

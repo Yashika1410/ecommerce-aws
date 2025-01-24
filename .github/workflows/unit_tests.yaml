@@ -1,0 +1,33 @@
+name: Run Tests on Pull Request
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'src/**'
+      - 'pom.xml'
+
+jobs:
+  run-tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up JDK (Java Example)
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17' 
+
+      # Install dependencies
+      - name: Install dependencies
+        run: ./mvnw dependency:resolve # Adjust if using Gradle or other tools
+
+      # Run tests
+      - name: Run tests
+        run: ./mvnw test
