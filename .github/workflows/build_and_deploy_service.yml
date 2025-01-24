@@ -22,7 +22,7 @@ jobs:
 
       # Step 3: Build the Spring Boot application
       - name: Build with Maven
-        run: ./mvnw clean package
+        run:  mvn clean package
 
       # Step 4: Upload JAR file to Elastic Beanstalk
       - name: Deploy to AWS Elastic Beanstalk

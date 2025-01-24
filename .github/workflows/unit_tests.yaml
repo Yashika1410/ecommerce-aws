@@ -31,4 +31,4 @@ jobs:
 
       # Run tests
       - name: Run tests
-        run: ./mvnw test
+        run:  mvn test
