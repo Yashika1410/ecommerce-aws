@@ -150,7 +150,7 @@ To run the application, follow the instructions below:
     * Now check the EBS's oveall health. to check logging metric is working ot not.
         ![Access Got created](./images/ebs-15.PNG)
         ![Access Got created](./images/ebs-16.PNG)
-    Working fine Nice :D
+    Working fine Nice 😄
 
 
 
